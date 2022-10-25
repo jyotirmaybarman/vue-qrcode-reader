@@ -30,11 +30,11 @@ class Camera {
 // media constraints don't allow us to specify which camera we want exactly.
 const narrowDownFacingMode = async camera => {
   // Filter some devices, known to be bad choices.
-  const deviceBlackList = ["OBS Virtual Camera", "OBS-Camera"];
+  // const deviceBlackList = ["OBS Virtual Camera", "OBS-Camera"];
 
   const devices = (await navigator.mediaDevices.enumerateDevices())
     .filter(({ kind }) => kind === "videoinput")
-    .filter(({ label }) => !deviceBlackList.includes(label))
+    // .filter(({ label }) => !deviceBlackList.includes(label))
     .filter(({ label }) => !label.includes("infrared"));
 
   if (devices.length > 2) {
@@ -52,7 +52,7 @@ const narrowDownFacingMode = async camera => {
       case "front":
         return { deviceId: { exact: frontCamera.deviceId } };
       default:
-        return undefined;
+        return devices.find(d => d.deviceId === camera) ? { deviceId: { exact: camera } } : undefined;
     }
   } else {
     switch (camera) {
@@ -63,7 +63,7 @@ const narrowDownFacingMode = async camera => {
       case "front":
         return { facingMode: { exact: "user" } };
       default:
-        return undefined;
+        return devices.find(d => d.deviceId === camera) ? { deviceId: { exact: camera } } : undefined;
     }
   }
 };
