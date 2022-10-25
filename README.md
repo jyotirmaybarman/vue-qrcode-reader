@@ -1,3 +1,6 @@
+# This is just a fork of ```vue-qrcode-reader``` to support switching cameras using device id
+
+
 <p align="center">
   <img src="https://gruhn.github.io/vue-qrcode-reader/logo.png" alt="Logo" width="240" height="240" style="max-width: 100%;">
 
@@ -92,13 +95,13 @@ methods: {
 Run
 
 ```bash
-npm install vue-qrcode-reader
+npm install @jyotirmay/vue-qrcode-reader-extended
 ```
 
 You can import the components independantly
 
 ```javascript
-import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue-qrcode-reader'
+import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from '@jyotirmay/vue-qrcode-reader-extended'
 
 const MyComponent = {
 
@@ -116,7 +119,7 @@ or register all of them globally right away
 
 ```javascript
 import Vue from "vue";
-import VueQrcodeReader from "vue-qrcode-reader";
+import VueQrcodeReader from "@jyotirmay/vue-qrcode-reader-extended";
 
 Vue.use(VueQrcodeReader);
 ```
