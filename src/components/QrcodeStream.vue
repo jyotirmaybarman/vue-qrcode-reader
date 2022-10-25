@@ -43,9 +43,9 @@ export default {
       type: String,
       default: "auto",
 
-      validator(camera) {
-        return ["auto", "rear", "front", "off"].includes(camera);
-      }
+      // validator(camera) {
+      //   return ["auto", "rear", "front", "off"].includes(camera);
+      // }
     },
 
     torch: {
